@@ -2,10 +2,39 @@ import React from 'react';
 import Hero from '../components/Hero';
 import Section from '../components/Section';
 import ContactForm from '../components/ContactForm';
-import { LayoutList, HeartHandshake, Smartphone, Activity, TrendingUp, PhoneOutgoing, Building2, Wrench, Users } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { LayoutList, HeartHandshake, Smartphone, Activity, TrendingUp, PhoneOutgoing, Building2, Wrench, Users, CheckCircle2, Clock, AlertCircle } from 'lucide-react';
 
 const Home: React.FC = () => {
+  const mockTasks = [
+    { 
+      id: 4523, 
+      title: 'Нет вызова в квартиру', 
+      caller: 'Мария Ивановна',
+      address: 'ул. Ленина 45, кв. 12', 
+      status: 'new', 
+      statusText: 'Новая',
+      time: '10:42'
+    },
+    { 
+      id: 4522, 
+      title: 'Течёт крыша (сильно капает)', 
+      caller: 'Ольга Сергеевна',
+      address: 'пр. Мира 12, кв. 98', 
+      status: 'work', 
+      statusText: 'В работе (Бригада №2)',
+      time: '09:15'
+    },
+    { 
+      id: 4521, 
+      title: 'Сломан доводчик', 
+      caller: 'Дмитрий Петрович',
+      address: 'ул. Гагарина 8, п. 1', 
+      status: 'done', 
+      statusText: 'Выполнена',
+      time: 'Вчера'
+    }
+  ];
+
   return (
     <>
       <Hero />
@@ -44,33 +73,65 @@ const Home: React.FC = () => {
               </div>
             </div>
             <div className="mt-8">
-              <Link to="/how-it-works" className="text-brand-600 font-semibold hover:text-brand-700 flex items-center">
+              <button 
+                onClick={() => window.location.hash = '#/how-it-works'}
+                className="text-brand-600 font-semibold hover:text-brand-700 flex items-center bg-transparent border-none cursor-pointer p-0 text-lg"
+              >
                 Как это устроено технически &rarr;
-              </Link>
+              </button>
             </div>
           </div>
           <div className="bg-slate-100 rounded-2xl p-8 border border-slate-200 relative">
-             {/* Abstract visual of tasks organization */}
-             <div className="space-y-3">
-                <div className="flex justify-between items-center text-sm text-slate-500 uppercase font-semibold tracking-wider mb-4">
-                  <span>Наша CRM (Ваш доступ)</span>
-                  <span>Битрикс24</span>
+             {/* Realistic Task Visualization */}
+             <div className="space-y-4">
+                <div className="flex justify-between items-center text-sm text-slate-500 uppercase font-semibold tracking-wider mb-2">
+                  <span>Список заявок (Live)</span>
+                  <span className="text-brand-600">Битрикс24</span>
                 </div>
-                {[1, 2, 3].map((i) => (
-                  <div key={i} className="bg-white p-4 rounded-lg shadow-sm border border-slate-200 flex items-center gap-4">
-                    <div className={`w-2 h-2 rounded-full ${i === 1 ? 'bg-red-500' : 'bg-green-500'}`}></div>
-                    <div className="flex-1">
-                      <div className="h-2 bg-slate-200 rounded w-3/4 mb-2"></div>
-                      <div className="h-2 bg-slate-100 rounded w-1/2"></div>
-                    </div>
-                    <div className="text-slate-300">
-                      <Activity className="w-5 h-5" />
+                
+                {mockTasks.map((task) => (
+                  <div key={task.id} className="bg-white p-4 rounded-xl shadow-sm border border-slate-200 transition-transform hover:scale-[1.02] duration-200">
+                    <div className="flex items-start gap-3">
+                      {/* Status Indicator */}
+                      <div className={`mt-1 w-3 h-3 rounded-full flex-shrink-0 ${
+                        task.status === 'new' ? 'bg-red-500 animate-pulse' :
+                        task.status === 'work' ? 'bg-yellow-500' : 'bg-green-500'
+                      }`}></div>
+                      
+                      <div className="flex-1 min-w-0">
+                        <div className="flex justify-between items-start mb-1">
+                          <span className="text-xs font-bold text-slate-400">#{task.id}</span>
+                          <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                            task.status === 'new' ? 'bg-red-50 text-red-600' :
+                            task.status === 'work' ? 'bg-yellow-50 text-yellow-700' : 'bg-green-50 text-green-600'
+                          }`}>
+                            {task.statusText}
+                          </span>
+                        </div>
+                        <h4 className="text-sm font-bold text-slate-900 mb-0.5 truncate">{task.title}</h4>
+                        <p className="text-xs text-brand-600 font-medium mb-1">{task.caller}</p>
+                        <div className="flex justify-between items-center text-xs text-slate-500">
+                          <span className="truncate mr-2">{task.address}</span>
+                          <span className="whitespace-nowrap flex items-center gap-1 opacity-70">
+                            <Clock className="w-3 h-3" /> {task.time}
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 ))}
              </div>
-             <div className="absolute -bottom-4 -right-4 bg-white p-4 rounded-lg shadow-lg border border-slate-100 hidden md:block">
-               <p className="text-xs text-slate-500 font-medium">Вы видите всё в реальном времени</p>
+             
+             <div className="absolute -bottom-5 -right-5 bg-white p-4 rounded-xl shadow-xl border border-slate-100 hidden md:block animate-bounce duration-[3000ms]">
+               <div className="flex items-center gap-3">
+                 <div className="bg-green-100 p-2 rounded-full">
+                   <CheckCircle2 className="w-5 h-5 text-green-600" />
+                 </div>
+                 <div>
+                   <p className="text-xs text-slate-500 font-medium">Статистика сегодня</p>
+                   <p className="text-sm font-bold text-slate-900">Закрыто 98% заявок</p>
+                 </div>
+               </div>
              </div>
           </div>
         </div>
@@ -213,11 +274,12 @@ const Home: React.FC = () => {
               </p>
             </div>
             <div className="flex flex-wrap gap-4">
-               <Link to="/tariffs">
-                 <button className="px-6 py-3 rounded-lg bg-white text-brand-900 font-medium hover:bg-brand-50 transition-colors">
-                   Смотреть тарифы
-                 </button>
-               </Link>
+               <button 
+                 className="px-6 py-3 rounded-lg bg-white text-brand-900 font-medium hover:bg-brand-50 transition-colors cursor-pointer border-none"
+                 onClick={() => window.location.hash = '#/tariffs'}
+               >
+                 Смотреть тарифы
+               </button>
             </div>
           </div>
           <div>

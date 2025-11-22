@@ -25,7 +25,12 @@ const Contacts: React.FC = () => {
                        </div>
                      </a>
                      
-                     <a href="https://wa.me/79990000000" className="flex items-center gap-4 text-slate-700 hover:text-brand-600 transition-colors">
+                     <a 
+                       href="https://wa.me/79990000000?text=Здравствуйте!%20Хочу%20узнать%20подробнее%20об%20условиях%20подключения%20к%20«Своей%20диспетчерской».%20Пришлите,%20пожалуйста,%20информацию."
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       className="flex items-center gap-4 text-slate-700 hover:text-brand-600 transition-colors"
+                     >
                        <div className="bg-green-100 p-3 rounded-full text-green-600">
                          <MessageCircle className="w-6 h-6" />
                        </div>

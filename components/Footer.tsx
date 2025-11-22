@@ -1,7 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
+  const navigate = (path: string) => {
+    window.location.hash = `#${path}`;
+  };
+
   return (
     <footer className="bg-slate-900 text-slate-400 py-12">
       <div className="container mx-auto px-4 md:px-6 max-w-7xl">
@@ -17,12 +20,12 @@ const Footer: React.FC = () => {
           
           <div>
             <h4 className="text-white font-semibold mb-4">Меню</h4>
-            <ul className="space-y-2 text-sm">
-              <li><Link to="/" className="hover:text-white transition-colors">Главная</Link></li>
-              <li><Link to="/tariffs" className="hover:text-white transition-colors">Тарифы</Link></li>
-              <li><Link to="/how-it-works" className="hover:text-white transition-colors">Как мы работаем</Link></li>
-              <li><Link to="/about" className="hover:text-white transition-colors">О нас</Link></li>
-            </ul>
+            <div className="flex flex-col space-y-2 text-sm">
+              <button type="button" onClick={() => navigate('/')} className="hover:text-white transition-colors text-left bg-transparent border-none cursor-pointer">Главная</button>
+              <button type="button" onClick={() => navigate('/tariffs')} className="hover:text-white transition-colors text-left bg-transparent border-none cursor-pointer">Тарифы</button>
+              <button type="button" onClick={() => navigate('/how-it-works')} className="hover:text-white transition-colors text-left bg-transparent border-none cursor-pointer">Как мы работаем</button>
+              <button type="button" onClick={() => navigate('/about')} className="hover:text-white transition-colors text-left bg-transparent border-none cursor-pointer">О нас</button>
+            </div>
           </div>
 
           <div>

@@ -1,22 +1,15 @@
 import React from 'react';
 import { CheckCircle, Phone, MessageCircle } from 'lucide-react';
 import Button from './Button';
-import { useNavigate } from 'react-router-dom';
 
 const Hero: React.FC = () => {
-  const navigate = useNavigate();
-
   const scrollToContact = () => {
     const element = document.getElementById('contact-form');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     } else {
-      navigate('/contacts');
+      window.location.hash = '#/contacts';
     }
-  };
-
-  const openWhatsApp = () => {
-    window.open('https://wa.me/70000000000', '_blank');
   };
 
   return (
@@ -58,7 +51,13 @@ const Hero: React.FC = () => {
                 <Phone className="w-4 h-4 mr-2" />
                 Оставить заявку
               </Button>
-              <Button variant="whatsapp" onClick={openWhatsApp} className="w-full sm:w-auto">
+              <Button 
+                variant="whatsapp" 
+                href="https://wa.me/79990000000?text=Здравствуйте!%20Хочу%20узнать%20подробнее%20об%20условиях%20подключения%20к%20«Своей%20диспетчерской».%20Пришлите,%20пожалуйста,%20информацию." 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto"
+              >
                 <MessageCircle className="w-4 h-4 mr-2" />
                 Написать в WhatsApp
               </Button>
@@ -76,6 +75,7 @@ const Hero: React.FC = () => {
                   <div>
                     <p className="text-sm text-white/70">Входящий вызов • 10:42</p>
                     <p className="font-medium">«У нас не работает домофон, 3-й подъезд...»</p>
+                    <p className="text-xs text-white/50 mt-1">Мария Ивановна, ул. Ленина 45</p>
                   </div>
                 </div>
                 <div className="flex justify-center">
@@ -88,7 +88,8 @@ const Hero: React.FC = () => {
                   <div>
                     <p className="text-sm text-brand-200">Новая задача в Битрикс24</p>
                     <p className="font-medium">Заявка №452: Ремонт оборудования</p>
-                    <p className="text-xs text-brand-200 mt-1">Назначен: Мастер Алексей</p>
+                    <p className="text-xs text-brand-200 mt-1">Заявитель: Мария Ивановна</p>
+                    <p className="text-xs text-brand-200">Назначен: Мастер Алексей</p>
                   </div>
                 </div>
                 <div className="flex justify-center">
@@ -101,6 +102,7 @@ const Hero: React.FC = () => {
                   <div>
                     <p className="text-sm text-white/70">Контроль качества</p>
                     <p className="font-medium">«Спасибо, мастер все починил!»</p>
+                    <p className="text-xs text-white/50 mt-1">— Мария Ивановна</p>
                   </div>
                 </div>
               </div>

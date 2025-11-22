@@ -2,7 +2,6 @@ import React from 'react';
 import Section from '../components/Section';
 import { Check, Clock, Info, PhoneOutgoing, Calculator, XCircle, CheckCircle2 } from 'lucide-react';
 import Button from '../components/Button';
-import { Link } from 'react-router-dom';
 
 const Tariffs: React.FC = () => {
   return (
@@ -56,9 +55,13 @@ const Tariffs: React.FC = () => {
                </div>
              </div>
              
-             <Link to="/contacts" className="w-full">
-               <Button variant="secondary" className="w-full">Выбрать тариф</Button>
-             </Link>
+             <Button 
+               variant="secondary" 
+               className="w-full"
+               onClick={() => window.location.hash = '#/contacts'}
+             >
+               Выбрать тариф
+             </Button>
           </div>
 
           {/* Tariff 2 */}
@@ -101,9 +104,13 @@ const Tariffs: React.FC = () => {
                </div>
              </div>
 
-             <Link to="/contacts" className="w-full">
-               <Button variant="primary" className="w-full">Оставить заявку</Button>
-             </Link>
+             <Button 
+               variant="primary" 
+               className="w-full"
+               onClick={() => window.location.hash = '#/contacts'}
+             >
+               Оставить заявку
+             </Button>
           </div>
 
           {/* Tariff 3 */}
@@ -143,9 +150,13 @@ const Tariffs: React.FC = () => {
                </div>
              </div>
 
-             <Link to="/contacts" className="w-full">
-               <Button variant="secondary" className="w-full">Выбрать тариф</Button>
-             </Link>
+             <Button 
+               variant="secondary" 
+               className="w-full"
+               onClick={() => window.location.hash = '#/contacts'}
+             >
+               Выбрать тариф
+             </Button>
           </div>
         </div>
         
@@ -176,11 +187,13 @@ const Tariffs: React.FC = () => {
              </div>
            </div>
            <div className="flex-shrink-0">
-             <Link to="/contacts">
-               <Button variant="outline" className="border-indigo-200 text-indigo-700 hover:bg-indigo-100 bg-white">
-                 Обсудить условия
-               </Button>
-             </Link>
+             <Button 
+               variant="outline" 
+               className="border-indigo-200 text-indigo-700 hover:bg-indigo-100 bg-white"
+               onClick={() => window.location.hash = '#/contacts'}
+             >
+               Обсудить условия
+             </Button>
            </div>
         </div>
 
@@ -196,6 +209,16 @@ const Tariffs: React.FC = () => {
                 Вся внутренняя работа диспетчера — создание карточки в Битрикс24, передача заявки мастеру, контроль статусов и отчеты — <strong>включена в стоимость тарифа</strong> и не расходует пакет минут.
               </p>
             </div>
+        </div>
+        
+        {/* Safe Start Section */}
+        <div className="max-w-3xl mx-auto mt-8 text-center">
+          <div className="inline-block bg-green-50 border border-green-200 rounded-lg p-4 shadow-sm">
+             <p className="text-green-800 text-sm font-medium">
+                <strong>Безопасный старт:</strong> Можно начать с части объектов или одного города. <br className="hidden md:block"/>
+                Если через 1–2 месяца увидите порядок и рост собираемости — расширяемся.
+             </p>
+          </div>
         </div>
       </Section>
 
