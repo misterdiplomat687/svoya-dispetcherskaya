@@ -26,7 +26,7 @@ const Contacts: React.FC = () => {
                      </a>
                      
                      <a 
-                       href="https://wa.me/79268045170?text=Здравствуйте!%20Пришлите%20условия%20подключения%20к%20агрегатору%20«Своя%20диспетчерской»."
+                       href="https://wa.me/79268045170?text=Здравствуйте!%20Хочу%20узнать%20условия%20подключения%20к%20«Своей%20диспетчерской»."
                        target="_blank"
                        rel="noopener noreferrer"
                        className="flex items-center gap-4 text-slate-700 hover:text-brand-600 transition-colors"

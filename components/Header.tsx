@@ -26,6 +26,18 @@ const Header: React.FC = () => {
     };
   }, []);
 
+  // Блокировка прокрутки страницы при открытом мобильном меню
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
+
   const navLinks = [
     { name: 'Главная', path: '/' },
     { name: 'Тарифы', path: '/tariffs' },
