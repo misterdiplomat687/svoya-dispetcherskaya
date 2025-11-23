@@ -15,18 +15,18 @@ const Contacts: React.FC = () => {
                 <div className="bg-white p-8 rounded-2xl shadow-sm">
                    <h3 className="text-2xl font-bold mb-6">Свяжитесь с нами</h3>
                    <div className="space-y-6">
-                     <a href="tel:+79990000000" className="flex items-center gap-4 text-slate-700 hover:text-brand-600 transition-colors">
+                     <a href="tel:+79268045170" className="flex items-center gap-4 text-slate-700 hover:text-brand-600 transition-colors">
                        <div className="bg-brand-100 p-3 rounded-full text-brand-600">
                          <Phone className="w-6 h-6" />
                        </div>
                        <div>
                          <p className="text-sm text-slate-500">Телефон</p>
-                         <p className="text-lg font-medium">+7 (999) 000-00-00</p>
+                         <p className="text-lg font-medium">+7 (926) 804-51-70</p>
                        </div>
                      </a>
                      
                      <a 
-                       href="https://wa.me/79990000000?text=Здравствуйте!%20Хочу%20узнать%20подробнее%20об%20условиях%20подключения%20к%20«Своей%20диспетчерской».%20Пришлите,%20пожалуйста,%20информацию."
+                       href="https://wa.me/79268045170?text=Здравствуйте!%20Пришлите%20условия%20подключения%20к%20агрегатору%20«Своя%20диспетчерской»."
                        target="_blank"
                        rel="noopener noreferrer"
                        className="flex items-center gap-4 text-slate-700 hover:text-brand-600 transition-colors"
