@@ -10,7 +10,6 @@ const Tariffs: React.FC = () => {
         <div className="container mx-auto px-4">
           <h1 className="text-4xl font-bold mb-4">Тарифы</h1>
           <p className="text-lg text-brand-100 max-w-3xl mx-auto">
-            Мы берем на себя только входящую связь с абонентами (звонки + WhatsApp).<br/>
             Вы платите только за фактическое время разговора, вся работа в CRM — уже включена.
           </p>
         </div>
